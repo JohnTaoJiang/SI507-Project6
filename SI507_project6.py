@@ -101,23 +101,23 @@ csv_to_db('michigan')
 
 cur.execute('SELECT location FROM sites')
 all_locations = cur.fetchall()
-print(type(all_locations))
+# print(all_locations)
 
 cur.execute(""" SELECT name FROM sites WHERE description LIKE '%beautiful%' """) # when passing a string val to postgres, single quote should be used
 beautiful_sites = cur.fetchall()
-print(beautiful_sites)
+# print(beautiful_sites)
 
 cur.execute(""" SELECT COUNT(*) FROM SITES WHERE TYPE = 'National Lakeshore' """)
 natl_lakeshores = cur.fetchall()
-print(natl_lakeshores)
+# print(natl_lakeshores)
 
 cur.execute(""" SELECT SITES.NAME FROM SITES INNER JOIN STATES ON (SITES.STATE_ID = STATES.ID) WHERE STATES.NAME = 'michigan' """)
 michigan_names = cur.fetchall()
-print(michigan_names)
+# print(michigan_names)
 
 cur.execute(""" SELECT COUNT(*) FROM SITES INNER JOIN STATES ON (SITES.STATE_ID = STATES.ID) WHERE STATES.NAME = 'arkansas' """)
 total_number_arkansas = cur.fetchall()
-print(total_number_arkansas)
+# print(total_number_arkansas)
 
 
 # We have not provided any tests, but you could write your own in this file or another file, if you want.
